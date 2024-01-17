@@ -338,8 +338,8 @@ extern uint8_t gLedSftClkCnt;
 
 //==========================================================PD GAIN CTRL DEFINE
 #if (MODEL_TYPE == WMC_0750_NXP_VE)
-#define PD_GAIN_CTRL_MASK_BIT     0xC0000000  // 1100 0000 0000 0000 0000 0000 0000 0000
-#define M_PD_GAIN_CTRL_SET(cellNo)   (GPIO1->DR ^= (GPIO1->DR ^ (cellNo<<30)) & PD_GAIN_CTRL_MASK_BIT);
+#define PD_GAIN_CTRL_MASK_BIT     0x30000000  // 0011 0000 0000 0000 0000 0000 0000 0000
+#define M_PD_GAIN_CTRL_SET(cellNo)   (GPIO1->DR ^= (GPIO1->DR ^ (cellNo<<28)) & PD_GAIN_CTRL_MASK_BIT);
 #else
 #define M_PD_GAIN_CTRL_SET(cellno) { \
           GPIO1->DR_CLEAR = 0xC0000000; \
